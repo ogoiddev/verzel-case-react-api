@@ -18,6 +18,9 @@ app.use(Routes);
 
 app.use(errorHandler);
 
+app.use('/test', (req: Request, res: Response) =>
+  res.json('API Connected - APP listen'));
+
 app.use('/api/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 export default app;
