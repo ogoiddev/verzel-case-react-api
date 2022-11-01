@@ -11,9 +11,10 @@
 ## Setup inicial do Back-end
 
 * Utilizamos a referencia de um Boilerplate de projeto TS com o ESLint da Trybe e Debugger configurados
+<details><summary>Instruções</summary>
 <p>
 
-```ruby
+
 Boilerplate de projeto TS
 Sumário
 Passo a passo
@@ -36,7 +37,7 @@ Criar o script start
 No package.json, na chave scripts, adicione "start": "ts-node src/index.ts"
 Copiar dependências do eslint na chave devDependencies do package.json
 
-```
+```ruby
 "eslint": "^7.32.0",
 "eslint-config-airbnb-base": "^15.0.0",
 "eslint-config-airbnb-typescript": "^15.0.0",
@@ -49,7 +50,8 @@ Copiar dependências do eslint na chave devDependencies do package.json
 Executar npm i para instalar as dependências copiadas
 
 Criar o arquivo .eslintrc.json com o seguinte conteúdo:
-```
+
+```ruby
 {
   "root": true,
   "env": {
@@ -203,5 +205,6 @@ Depois escolher o script que você quer depurar.
 Nesse caso provavelmente será o start
 
 Escolher script
-```
+
 </p>
+</details>
