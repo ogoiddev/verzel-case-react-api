@@ -10,7 +10,7 @@ export const VehicleZodSchema = z.object({
   features: z.object({
     state: z.string().max(20),
     city: z.string().max(30),
-    km: z.number().max(6),
+    km: z.number().max(1000000),
     gearShift: z.string().max(10),
   }),
 });

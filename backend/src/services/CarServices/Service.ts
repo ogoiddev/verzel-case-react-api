@@ -11,7 +11,8 @@ export default class Service {
     const parseSuccess = CarZodSchema.safeParse(objectCar);
     
     if (!parseSuccess.success) throw parseSuccess.error;
-
+    console.log('first');
+    
     const results = await this.carModel.create(objectCar);
     return results;
   }
