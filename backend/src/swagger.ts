@@ -3,7 +3,8 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const outputFile = './swagger_output.json';
 const endpointsFiles = [
-  './routes/index.ts',
+  'src/routes/carRoutes.ts',
+  'src/routes/userRoutes.ts',
 ];
 
 swaggerAutogen(outputFile, endpointsFiles);
