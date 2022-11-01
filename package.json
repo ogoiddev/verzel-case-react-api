@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsnd --exit-child src/index.ts",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 60000",
+    "cover:test": "nyc npm run test:dev"
   },
   "repository": {
     "type": "git",
