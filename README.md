@@ -234,7 +234,7 @@ npm install
 ```
 npm run dev
 ```
-#### !:)! - Pronto! voce ja esta com o MongoDB rodando no Docker junto com sua Aplicacao API. Pode ja testar as rotas.
+#### !:)! - Pronto! voce ja esta com o MongoDB rodando no Docker junto com sua Aplicacao API. Pode testar as rotas.
 
 Rota para ver o swagger doc API => url + **api/doc**
 
