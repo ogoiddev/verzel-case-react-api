@@ -5,7 +5,7 @@
 
 * [Clique aqui]() para estudar o comportamento das requisições de cada endpoint
 
-![Screenshot]()
+![Screenshot](https://github.com/ogoiddev/verzel-case-react-api/blob/api-dev/backend/public/Screenshot%202022-11-02%20014634.jpg?raw=true)
 
 
 ## Setup inicial do Back-end
@@ -236,5 +236,5 @@ npm run dev
 ```
 #### !:)! - Pronto! voce ja esta com o MongoDB rodando no Docker junto com sua Aplicacao API. Pode testar as rotas.
 
-Rota para ver o swagger doc API => url + **api/doc**
+Rota para ver o swagger doc API => url_localhost + **api/doc**
 

@@ -9,7 +9,11 @@ class AuthMiddleware {
     if (typeof requestAuth === 'string') {
       ValidateJWT.validateToken(requestAuth);
     } else {
+<<<<<<< HEAD
       throw Error(ErrorTypes.InvalidToken);
+=======
+      throw Error(ErrorTypes.)
+>>>>>>> 3414a999afa9d8422ecc695270190cbd4a5d84e0
     }
 
     next();
