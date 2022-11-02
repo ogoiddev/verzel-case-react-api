@@ -4,11 +4,11 @@
     "rootDir": "./src",
     "target": "es2019",
     "module": "CommonJS",
-    "baseUrl": ".",
     "typeRoots": [
       "src/@types",
       "./node_modules/@types"
     ],
+    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
