@@ -18,6 +18,7 @@ export default class CarController {
   public getUserById = async (req: Request, res: Response) => {
     const { id } = req.params;
     const result = await this.service.getUserById(id);
+
     res.status(200).json(result);
   };
 
