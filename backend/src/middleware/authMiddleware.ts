@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { ErrorTypes } from '../errors/catalog';
 import ValidateJWT from '../utils/JWT/JWT.Validate';
 
 class AuthMiddleware {
@@ -7,6 +8,8 @@ class AuthMiddleware {
     
     if (typeof requestAuth === 'string') {
       ValidateJWT.validateToken(requestAuth);
+    } else {
+      throw Error(ErrorTypes.)
     }
 
     next();

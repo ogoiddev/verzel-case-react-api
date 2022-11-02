@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import Service from '../services/UserServices/Service';
 
 export default class CarController {
-  constructor(private service: Service) {}
+  constructor(private service: Service) { }
 
   public saveNewUser = async (req: Request, res: Response) => {
     const { body } = req;

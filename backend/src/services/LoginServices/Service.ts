@@ -8,7 +8,7 @@ export default class LoginAuthServices {
   constructor(private userModel: IModel<IUser>) {}
 
   async getUserByEmail(email: string) {
-    const userData = await this.userModel.readOne(email);
+    const userData = await this.userModel.readOneByEmail(email);
 
     if (!userData) throw Error(ErrorTypes.EntityNotFound);
 

@@ -32,7 +32,7 @@ export default class Service {
   public async getUserById(id: string) {
     if (!isValidObjectId(id)) throw Error(ErrorTypes.InvalidMongoId);
     
-    const result = await this.userModel.readOne(id);
+    const result = await this.userModel.readOneById(id);
 
     if (!result) throw Error(ErrorTypes.EntityNotFound);
     
@@ -40,9 +40,7 @@ export default class Service {
   }
 
   public async getUserByEmail(email: string) {
-    // if (!isValidObjectId(email)) throw Error(ErrorTypes.InvalidMongoId);
-    
-    const result = await this.userModel.readOne(email);
+    const result = await this.userModel.readOneByEmail(email);
 
     if (!result) throw Error(ErrorTypes.EntityNotFound);
     

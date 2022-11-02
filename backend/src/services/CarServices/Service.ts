@@ -25,7 +25,7 @@ export default class Service {
   public async getCarById(id: string) {
     if (!isValidObjectId(id)) throw Error(ErrorTypes.InvalidMongoId);
     
-    const result = await this.carModel.readOne(id);
+    const result = await this.carModel.readOneById(id);
 
     if (!result) throw Error(ErrorTypes.EntityNotFound);
     
