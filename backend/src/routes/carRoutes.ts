@@ -1,8 +1,14 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
+import factory from '../factories';
 
 const carRoute = Router();
 
-carRoute.get('/', (_req: Request, res: Response) =>
-  res.json('API Connected - APP listen'));
+carRoute.put('/:id', factory.carHandler.updateCar);
+carRoute.post('/', factory.carHandler.saveNewCar);
+
+carRoute.get('/:id', factory.carHandler.getCarById);
+carRoute.get('/', factory.carHandler.getCarsList);
+
+carRoute.delete('/:id', factory.carHandler.deleteCar);
 
 export default carRoute;

@@ -1,6 +1,8 @@
 export enum ErrorTypes {
   EntityNotFound = 'EntityNotFound',
   InvalidMongoId = 'InvalidMongoId',
+  InvalidPasswordBcrypt = 'InvalidPasswordBcrypt',
+  InvalidToken = 'InvalidToken',
 }
 
 type ErrorResponseObject = {
@@ -21,4 +23,13 @@ export const errorCatalog: ErrorCatalog = {
     error: 'Id must have 24 hexadecimal characters',
     httpStatus: 400,
   },
+  InvalidPasswordBcrypt: {
+    error: 'Problem with password bcrypt',
+    httpStatus: 400,
+  },
+  InvalidToken: {
+    error: 'Problem with token',
+    httpStatus: 400,
+  },
+  
 };

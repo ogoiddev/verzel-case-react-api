@@ -1,9 +1,8 @@
+"use strict";
 /* eslint-disable @typescript-eslint/no-var-requires */
 const swaggerAutogen = require('swagger-autogen')();
-
-const outputFile = './src/swagger_output.json';
+const outputFile = './swagger_output.json';
 const endpointsFiles = [
-  './src/routes/index.ts',
+    './routes/index.ts',
 ];
-
 swaggerAutogen(outputFile, endpointsFiles);

@@ -9,8 +9,13 @@ abstract class MModel<T> implements IModel<T> {
     return results;
   }
   
-  async readOne(dataValue: string): Promise<T | null> {
+  async readOneById(dataValue: string): Promise<T | null> {
     const results = await this.model.findOne({ dataValue });
+    return results;
+  }
+
+  async readOneByEmail(dataValue: string): Promise<T | null> {
+    const results = await this.model.findOne({ email: dataValue });
     return results;
   }
   

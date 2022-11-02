@@ -34,18 +34,14 @@ services:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
       - 3001:3001
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: verzel
       MONGO_URI: mongodb://mongodb:27017/CarShop
+      JWT_SECRET: jwt_secret
       PORT: 3001
 
   # Serviço que irá rodar o mongodb
   mongodb:
     image: mongo:5.0.7
     container_name: car_shop_db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: verzel
     volumes:
       - ./:/app
     restart: always
