@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 60000",
     "cover:test": "nyc npm run test:dev",
@@ -48,6 +48,7 @@
     "helmet": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.0",
+    "nodemon": "^2.0.20",
     "swagger-autogen": "^2.22.0",
     "swagger-ui-express": "^4.5.0",
     "zod": "^3.19.1"

@@ -11,7 +11,6 @@ export default class Service {
     const parseSuccess = CarZodSchema.safeParse(objectCar);
     
     if (!parseSuccess.success) throw parseSuccess.error;
-    console.log('first');
     
     const results = await this.carModel.create(objectCar);
     return results;
@@ -48,8 +47,7 @@ export default class Service {
   public async deleteCar(id: string) {
     if (!isValidObjectId(id)) throw Error(ErrorTypes.InvalidMongoId);
     
-    const result = await this.carModel.delete(id);  
-    console.log(result);
+    const result = await this.carModel.delete(id);
 
     if (!result) throw Error(ErrorTypes.EntityNotFound);
 
