@@ -4,6 +4,7 @@ import 'express-async-errors';
 
 import swaggerUi from 'swagger-ui-express';
 import helmet from 'helmet';
+import multer from 'multer';
 import errorHandler from './middleware/errorMiddleware';
 import Routes from './routes/index';
 
@@ -15,6 +16,23 @@ app.use(helmet());
 app.use(express.json());
 
 app.use(Routes);
+
+const upload = multer({
+  dest: './uploads/',
+});
+
+app.post(
+  '/upload', 
+  upload.array('file'),
+  async (req: Request, res: Response) => {
+    const qt = req.files || '';
+    console.log(`Files received: ${qt.length}`);
+    res.send({
+      upload: true,
+      files: req.files,
+    });
+  },
+);
 
 app.use(errorHandler);
 
