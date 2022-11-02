@@ -2,8 +2,8 @@ import cors from 'cors';
 import express, { Request, Response } from 'express';
 import 'express-async-errors';
 
-import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
+import helmet from 'helmet';
 import errorHandler from './middleware/errorMiddleware';
 import Routes from './routes/index';
 

@@ -1,5 +1,4 @@
-/* eslint-disable import/no-import-module-exports */
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 import { ErrorTypes } from '../../errors/catalog';
 
 export const cryptPassword = (password: string) => {
