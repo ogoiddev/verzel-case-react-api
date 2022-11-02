@@ -5,7 +5,7 @@
 
 * [Clique aqui]() para estudar o comportamento das requisições de cada endpoint
 
-![Screenshot]()
+![Screenshot](https://github.com/ogoiddev/verzel-case-react-api/blob/api-dev/backend/public/Screenshot%202022-11-02%20014634.jpg?raw=true)
 
 
 ## Setup inicial do Back-end
