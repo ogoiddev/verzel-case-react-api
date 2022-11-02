@@ -110,6 +110,13 @@
         "parameters": [],
         "responses": {}
       }
+    },
+    "/login/": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
     }
   }
 }

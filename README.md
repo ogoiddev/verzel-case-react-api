@@ -232,9 +232,27 @@ npm install
 ```
 ... depois chama:
 ```
-npm run dev
+docker compose up -d
 ```
 #### !:)! - Pronto! voce ja esta com o MongoDB rodando no Docker junto com sua Aplicacao API. Pode testar as rotas.
 
-Rota para ver o swagger doc API => url_localhost + **api/doc**
+Se voce tiver acesso ao terminal do container, voce recebe um log final assim:
+```
+> verzel-case-react-api@1.0.0 dev
+> ts-node src/index.ts
+
+Running server on port: 3001
+```
+Rota para ver o swagger doc API => **http://localhost:3001/api/doc**
+
+--------------------------------------------------------------------
+
+## Informacoes uteis
+
+* As variaveis de ambiente verifica no arquivo docker-compose.yml
+* Algumas bibliotecas podem nao rodar em determinados sistemas.
+
+* Para rodar localmente sem o docker voce vai precisar configurar a connection:
+
+- 
 
