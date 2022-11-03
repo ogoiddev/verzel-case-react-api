@@ -10,6 +10,7 @@ export default function Header() {
       <img src={logo} alt="Logo da empresa" />
 
       <div className="right-side">
+        <Link to='/home'>Comprar Carro</Link>
         <Link to='/cars/register'>Vender Carro</Link>
         <Link to="/sobre">Sobre Nos</Link>
         <button type="button">

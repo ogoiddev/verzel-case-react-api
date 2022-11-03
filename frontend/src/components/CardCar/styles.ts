@@ -19,7 +19,7 @@ export const CardCarContainer = styled.div`
   
   .thumb {
     height: 64%;
-    
+
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -35,7 +35,7 @@ export const CardCarContainer = styled.div`
 
   .model {
     padding: 4px 8px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 800;
 
   }
@@ -56,7 +56,7 @@ export const CardCarContainer = styled.div`
 
   .price {
     font-size: 1.4rem;
-    font-weight: 800;
+    font-weight: 600;
     color: ${({theme}) => theme.COLORS.CONTRAST};
     padding: 4px 8px;
   }

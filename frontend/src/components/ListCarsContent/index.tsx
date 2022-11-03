@@ -5,13 +5,13 @@ import Loading from "../Loading";
 import { ListCarsContentContainer } from "./styles";
 
 export interface IListOfCars {
-  _id: string,
+  _id?: string,
   model: string,
   year: number,
   color: string,
-  status: boolean,
+  status?: boolean,
   buyValue: number,
-  imgs: string[],
+  imgs?: string[],
   seatsQty: number,
   doorsQty: number
   features: {
@@ -41,7 +41,7 @@ export default function ListCarsContent() {
   return (
     <ListCarsContentContainer>
       <div className="content-list">
-        { listOfCars.map(each => <CardCar {...each}/>)}
+        { listOfCars.sort((a, b) => b.buyValue - a.buyValue).map(each => <CardCar key={each._id} {...each}/>)}
       </div>
     </ListCarsContentContainer>
   );

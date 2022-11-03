@@ -2,16 +2,16 @@ import { z } from 'zod';
 
 export const VehicleZodSchema = z.object({
   model: z.string().min(3),
-  year: z.number().min(1900).max(2022),
+  year: z.number(),
   color: z.string(),
   status: z.boolean().optional(), 
   buyValue: z.number().int(),
-  imgs: z.array(z.string()),
+  imgs: z.array(z.string()).optional(),
   features: z.object({
     state: z.string().max(20),
-    city: z.string().max(30),
+    city: z.string().max(30).optional(),
     km: z.number().max(1000000),
-    gearShift: z.string().max(10),
+    gearShift: z.string().max(20).optional(),
   }),
 });
   

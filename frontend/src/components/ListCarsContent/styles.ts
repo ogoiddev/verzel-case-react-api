@@ -16,7 +16,7 @@ export const ListCarsContentContainer = styled.div`
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     gap: 16px;
 
     

@@ -12,8 +12,8 @@ export const HeaderContainer = styled.div`
   top: 0;
 
   img {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     margin: auto 0;
     border-radius: 50%;
   }
@@ -28,6 +28,16 @@ export const HeaderContainer = styled.div`
       display: flex;
       align-items: center;
       background: none;
+      margin: 0 16px;
+      border: 1px solid transparent;
+      padding: 8px;
+
+      :hover {
+        border: 1px solid ${({ theme }) => theme.COLORS.CONTRAST};
+        transition: 0.3s;
+        border-radius: 4px;
+
+      }
     }
 
     a {

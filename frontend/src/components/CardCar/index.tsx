@@ -17,7 +17,7 @@ export default function CardCar(props: IListOfCars) {
         <p>{props.features.state}</p>
       </div>
 
-      <p className="price">R$ {props.buyValue}</p>
+      <p className="price">R$ {props.buyValue.toString().split('000').join('.000')}</p>
     </CardCarContainer>
   );
 }

@@ -1,4 +1,6 @@
 export const LIST_CARS_URL = 'http://localhost:3001/cars'
+export const SAVE_NEW_CAR_URL = 'http://localhost:3001/cars'
+export const SEND_IMG_CAR_URL = 'http://localhost:3001/upload'
 export const GET_CAR_BY_ID_URL = 'http://localhost:3001/cars/'
 export const DELETE_CAR_BY_ID_URL = 'http://localhost:3001/cars/'
 export const UPDATE_CAR_BY_ID_URL = 'http://localhost:3001/cars/'
