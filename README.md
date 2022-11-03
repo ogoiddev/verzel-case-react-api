@@ -256,3 +256,9 @@ Rota para ver o swagger doc API => **http://localhost:3001/api/doc**
 
 - 
 
+* Se tiver problemas com Eslint nas importacoes, configure o seu diretorio em "project" no arquivo **.eslintrc.json**
+
+- "parserOptions": {
+      "ecmaVersion": 2019,
+      "sourceType": "module",
+      "project": "./**/tsconfig.json"

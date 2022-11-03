@@ -1,34 +1,49 @@
-import { useRef, useState } from "react";
+import axios from 'axios';
 import { CarRegisterContainer } from "./styles";
 
 export default function CarRegister() {
-  const [img, setImg] = useState([])
-  const filesElement = useRef(null);
 
 
-  const sendFile = async () => {
-    const dataForm = new FormData();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const dataForm = new FormData(e.currentTarget);
     
-    for (const file of filesElement.current.files) {
-      dataForm.append('file', file);
-    }
-    const res = await fetch(`http://localhost:3001/upload`, {
-      method: 'POST',
-      body: dataForm,
-    });
-    const data = await res.json();
-    setImg(data.files)
-    console.log(data);
-  };
+    const DTO = dataForm.getAll('avatar');
 
+    DTO.forEach(file => {
+      dataForm.append('file', file);
+    })
+    
+    
+    
+    console.log(DTO);
+    
+    try {
+
+      const { data } = await axios.post(('http://localhost:3001/upload'), DTO);
+      
+      
+      console.log(data);
+
+    } catch (AxiosError) {
+      console.log(AxiosError);
+    };
+  }
 
   return (
     <CarRegisterContainer>
-      <div>
-        <input type="file" multiple ref={filesElement} />
-        <button onClick={sendFile}>Send file</button>
 
-    </div>
+    <form name="profile_form" onSubmit={handleSubmit}>
+        <input
+          id="avatar"
+          name="avatar"
+          accept="image/*"
+          type="file"
+          multiple
+        />
+      <button type="submit">Submit</button>
+    </form>
+
     </CarRegisterContainer>
   );
 }

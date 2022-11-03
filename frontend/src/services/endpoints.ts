@@ -1,0 +1,6 @@
+export const LIST_CARS_URL = 'http://localhost:3001/cars'
+export const GET_CAR_BY_ID_URL = 'http://localhost:3001/cars/'
+export const DELETE_CAR_BY_ID_URL = 'http://localhost:3001/cars/'
+export const UPDATE_CAR_BY_ID_URL = 'http://localhost:3001/cars/'
+export const LOGIN_URL = 'http://localhost:3001/login'
+export const AUTH_TOKEN_URL = 'http://localhost:3001/users/validate'
