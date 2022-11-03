@@ -6,16 +6,38 @@ export const CardCarContainer = styled.div`
   justify-content: space-between;
   
   width: 300px;
-  max-height: 270px;
+  max-height: 280px;
 
+  border: 0.5px solid #1d1d1d30;
+  border-radius: 4px;
+  overflow: hidden;
+
+  :hover {
+    box-shadow: 0 4px 4px gray;
+    transition: 0.3s;
+  }
   
-  img {
-    object-fit: fill;
+  .thumb {
+    height: 64%;
+    
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 
+    img {
+      object-fit: cover;
+      width: 100%;
+
+      
+      
+    }
   }
 
-  h2 {
-    padding: 8px;
+  .model {
+    padding: 4px 8px;
+    font-size: 1.1rem;
+    font-weight: 800;
+
   }
 
   .description {
@@ -23,6 +45,9 @@ export const CardCarContainer = styled.div`
     flex-wrap: wrap;
     gap: 4px;
     padding: 0 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: ${({theme}) => theme.COLORS.TEXT_BLACK};
 
     p {
       padding: 4px 0;
@@ -30,9 +55,10 @@ export const CardCarContainer = styled.div`
   }
 
   .price {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 800;
     color: ${({theme}) => theme.COLORS.CONTRAST};
-    padding: 8px;
+    padding: 4px 8px;
   }
   
 

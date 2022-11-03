@@ -8,7 +8,7 @@ export default createGlobalStyle`
     scroll-behavior: smooth;
 
     max-width: 1937px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
   
   /* Works on Firefox */
@@ -37,7 +37,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Inter';
     width: 100vw;
     overflow-x: hidden;

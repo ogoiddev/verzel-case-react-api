@@ -4,8 +4,10 @@ import { CardCarContainer } from "./styles";
 export default function CardCar(props: IListOfCars) {
   return (
     <CardCarContainer>
-      <img src={props.imgs[0]} alt={props.model} />
-      <h2>{props.model}</h2>
+      <div className="thumb">
+        <img src={props.imgs[0]} alt={props.model} />
+      </div>
+      <p className="model">{props.model}</p>
       
       <div className="description">
         <p>{props.year}</p>

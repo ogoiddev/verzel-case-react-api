@@ -6,11 +6,13 @@ export const ListCarsContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
   
   .content-list {
     height: 70vh;
     width: 80%;
+
+    margin-top: 64px;
 
     display: flex;
     flex-wrap: wrap;

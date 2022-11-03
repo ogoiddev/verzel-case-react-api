@@ -35,7 +35,7 @@ export default function ListCarsContent() {
   }, [])
 
   if (!listOfCars) {
-    return <Loading color={"green"} />
+    return <Loading color={"blue"} />
   }
 
   return (

@@ -1,26 +1,62 @@
 import styled from "styled-components";
 
-export const ListCarsContentContainer = styled.div`
+export const HeaderContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 80px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
-  .content-list {
-    height: 70vh;
-    width: 80%;
 
+  justify-content: space-around;
+  align-items: center;
+
+  position: stick;
+  top: 0;
+
+  img {
+    width: 60px;
+    height: 60px;
+    margin: auto 0;
+    border-radius: 50%;
+  }
+
+  .right-side {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 16px;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+
+    button {
+      display: flex;
+      align-items: center;
+      background: none;
+    }
+
+    a {
+      text-decoration: none;
+      border-bottom: 1px solid;
+      font-weight: 600;
+      color: ${({ theme }) => theme.COLORS.TEXT_BLACK};
+
+      padding: 4px 8px;
+      
+      :hover {
+        color: ${({ theme }) => theme.COLORS.PRIMARY};
+        background: ${({ theme }) => theme.COLORS.CONTRAST};
+        transition: 0.3s;
+        border-radius: 4px;
+      }
+    }
 
     
+  }
+    
+  .login-icon {
 
+    height: 36px;
+    width: 36px;
+
+    margin: 0 8px;
+
+    color: ${({theme}) => theme.COLORS.TEXT_BLACK};
   }
   
-
-
 `
