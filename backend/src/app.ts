@@ -18,21 +18,28 @@ app.use(express.json());
 app.use(Routes);
 
 const upload = multer({
-  dest: './uploads/',
+  dest: './public/uploads/imgs',
 });
 
 app.post(
-  '/upload', 
+  '/upload',
+  
   upload.array('file'),
+
   async (req: Request, res: Response) => {
+    console.log(req.files);
     const qt = req.files || '';
+    
     console.log(`Files received: ${qt.length}`);
+
     res.send({
       upload: true,
       files: req.files,
     });
   },
 );
+
+app.use(express.static('public'));
 
 app.use(errorHandler);
 
