@@ -5,8 +5,8 @@ export const CardCarContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   
-  width: 270px;
-  min-height: 300px;
+  width: 300px;
+  max-height: 270px;
 
   
   img {
@@ -18,12 +18,19 @@ export const CardCarContainer = styled.div`
     padding: 8px;
   }
 
-  p {
-    padding: 8px;
+  .description {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0 8px;
+
+    p {
+      padding: 4px 0;
+    }
   }
 
   .price {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: ${({theme}) => theme.COLORS.CONTRAST};
     padding: 8px;
   }

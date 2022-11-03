@@ -7,9 +7,11 @@ export default function CardCar(props: IListOfCars) {
       <img src={props.imgs[0]} alt={props.model} />
       <h2>{props.model}</h2>
       
-      <div>
+      <div className="description">
         <p>{props.year}</p>
+        <p>&middot;</p>
         <p>{props.features.km}km</p>
+        <p>&middot;</p>
         <p>{props.features.state}</p>
       </div>
 

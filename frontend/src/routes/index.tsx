@@ -7,7 +7,7 @@ export function RoutesApp() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={ <Navigate to="/login" /> } />
+        <Route path="/" element={ <Navigate to="/home" /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/home" element={<Home />} />
         <Route path="/cars/register" element={<CarRegister />} />

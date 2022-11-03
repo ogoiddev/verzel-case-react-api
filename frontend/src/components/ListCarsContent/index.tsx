@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getListOfCars } from "../../services/CarsDataApi";
+import CardCar from "../CardCar";
+import Loading from "../Loading";
 import { ListCarsContentContainer } from "./styles";
 
 export interface IListOfCars {
@@ -32,10 +34,15 @@ export default function ListCarsContent() {
     })()
   }, [])
 
+  if (!listOfCars) {
+    return <Loading color={"green"} />
+  }
 
   return (
     <ListCarsContentContainer>
-      
+      <div className="content-list">
+        { listOfCars.map(each => <CardCar {...each}/>)}
+      </div>
     </ListCarsContentContainer>
   );
 }
