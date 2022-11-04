@@ -23,6 +23,7 @@ Este projeto é uma demonstração de como iniciar um projeto com typescript com
 
 Passo a Passo
 Setup
+
 Iniciar o projeto npm init -y
 
 Instalar npm i -D typescript ts-node @types/node
