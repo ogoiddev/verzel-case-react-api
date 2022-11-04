@@ -33,7 +33,6 @@ export default class Service {
     if (!isValidObjectId(id)) throw Error(ErrorTypes.InvalidMongoId);
     
     const result = await this.userModel.readOneById(id);
-    console.log(result);
 
     if (!result) throw Error(ErrorTypes.EntityNotFound);
     
@@ -65,7 +64,6 @@ export default class Service {
     if (!isValidObjectId(id)) throw Error(ErrorTypes.InvalidMongoId);
     
     const result = await this.userModel.delete(id);  
-    console.log(result);
 
     if (!result) throw Error(ErrorTypes.EntityNotFound);
 

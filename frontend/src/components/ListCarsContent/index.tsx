@@ -29,7 +29,7 @@ export default function ListCarsContent() {
   useEffect(() => {
     (async () => {
       const data = await getListOfCars()
-      console.log(data);
+
       setListOfCars(data)
     })()
   }, [])

@@ -60,7 +60,6 @@ export default function CarRegister() {
     data.append('file', file)
     
     const result = await sendImgOfNewCar(data)
-    console.log(result);
 
     if (!result) {
       return alert('Tem algo errado com o arquivo, tente novamente!');
@@ -124,8 +123,8 @@ export default function CarRegister() {
               const file = e.target.files && e.target.files[0] || '';
               setFile(file)
             }} />
-          </form>
           <button type="button" onClick={handleImgSubmit}>Enviar Fotos</button>
+          </form>
         </>
       
       }
