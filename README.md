@@ -13,7 +13,7 @@
 * [Aplicacao - Clique aqui para conhecer o site](https://verzel-case-react-api-dl2f.vercel.app/)
 
 
-![Tela de cadastro de venda](https://github.com/ogoiddev/verzel-case-react-api/blob/main/frontend/public/Screenshot%202022-11-04%20045348.jpg?raw=true)
+![Tela de cadastro de venda](https://ogoiddev-verzel.vercel.app/)
 
 
 ## Setup inicial do Back-end
