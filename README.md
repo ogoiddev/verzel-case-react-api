@@ -8,6 +8,14 @@
 ![Screenshot](https://github.com/ogoiddev/verzel-case-react-api/blob/api-dev/backend/public/Screenshot%202022-11-02%20014634.jpg?raw=true)
 
 
+## O frontend teve seu primeiro deploy:
+
+* [Aplicacao - Clique aqui para conhecer o site](https://verzel-case-react-api-dl2f.vercel.app/)
+
+
+![Tela de cadastro de venda]()
+
+
 ## Setup inicial do Back-end
 
 * Utilizamos a referencia de um Boilerplate de projeto TS com o ESLint da Trybe e Debugger configurados
