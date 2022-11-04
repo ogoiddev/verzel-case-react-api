@@ -276,4 +276,8 @@ Agora sim. Uma aplicacao completa para estudar. :)
       "sourceType": "module",
       "project": "./**/tsconfig.json"
 
+* Se tiver problemas no frontend tente acessar o arquivo **endpoints.ts** na pasta service do frontend para ver as configuracoes:
+- const URL_LOCAL = "http://localhost:3001/"
+- const URL_WEB = "https://verzel-case-react-api-production-c540.up.railway.app/"
+
 * Infelizmente ainda nao esta completa a aplicacao, mas jaja terminamos ela... Obrigado pela visita.
