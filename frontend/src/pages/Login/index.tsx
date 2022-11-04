@@ -1,14 +1,15 @@
-import { AxiosError } from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { saveTokenOnLocalStorage } from "../../context/localstorage";
-import { IUserLogDTO, loginToToken } from "../../services/LoginAuthApi";
+import { saveTokenOnLocalStorage } from "../../Context/LocalStorage";
+import { UserContext } from "../../Context/UserContext";
+import { loginToToken } from "../../services/LoginAuthApi";
 import { LoginContainer } from "./styles";
 
 export default function Login() {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [isDisable, setIsDisable] = useState(true)
+  const { setUserData } = useContext(UserContext)
   const navigate = useNavigate()
 
   const handleLogin = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -20,6 +21,8 @@ export default function Login() {
     }
 
     saveTokenOnLocalStorage('token', result.token)
+    saveTokenOnLocalStorage('user', result.userData)
+    setUserData(result)
     navigate('/home')
   }
 

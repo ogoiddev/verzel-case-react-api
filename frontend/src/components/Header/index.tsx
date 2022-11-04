@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { HeaderContainer } from "./styles";
 import logo from '../../../public/Logo-car-shop.png'
 import {FaUserCircle} from 'react-icons/fa'
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const [userLog, setUserLog] = useState()
+
+  
+
   const navigate = useNavigate()
   return (
     <HeaderContainer>
