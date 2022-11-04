@@ -4,37 +4,51 @@ import 'express-async-errors';
 
 import swaggerUi from 'swagger-ui-express';
 import helmet from 'helmet';
+
 import multer from 'multer';
+import path from 'path';
 import errorHandler from './middleware/errorMiddleware';
 import Routes from './routes/index';
-
 import swaggerFile from './swagger_output.json';
 
 const app = express();
+
 app.use(cors());
 app.use(helmet());
+
 app.use(express.json());
 
-app.use(Routes);
-
-const upload = multer({
-  dest: './uploads/',
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    
+    cb(null, Date.now() + path.basename(file.originalname));
+  },
 });
 
+const upload = multer({ storage });
+
 app.post(
-  '/upload', 
-  upload.array('file'),
+  '/upload',
+
+  upload.single('file'),
+
   async (req: Request, res: Response) => {
-    const qt = req.files || '';
-    console.log(`Files received: ${qt.length}`);
-    res.send({
+    res.json({
       upload: true,
-      files: req.files,
+      files: req.file,
     });
   },
 );
 
+app.use(Routes);
+
 app.use(errorHandler);
+
+app.use(express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 

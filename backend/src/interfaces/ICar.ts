@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { VehicleZodSchema } from './IVehicle';
 
 export const CarZodSchema = z.intersection(VehicleZodSchema, z.object({
-  doorsQty: z.number().min(2).max(4),
+  doorsQty: z.number().min(2).max(9),
   seatsQty: z.number().min(2).max(9),
 }));
 
