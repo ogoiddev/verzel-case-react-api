@@ -2,4 +2,4 @@ export const saveTokenOnLocalStorage = (key: string, data: string) => localStora
   .setItem(key, JSON.stringify(data));
 
 export const getTokenFromLocalStorage = (key: string) => JSON
-  .parse(localStorage.getItem(key) || '');
+  .parse(localStorage.getItem(key) || '') || '';

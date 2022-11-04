@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { saveTokenOnLocalStorage } from "../../context/localstorage";
 import { IUserLogDTO, loginToToken } from "../../services/LoginAuthApi";
 import { LoginContainer } from "./styles";
@@ -8,15 +9,18 @@ export default function Login() {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [isDisable, setIsDisable] = useState(true)
+  const navigate = useNavigate()
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     const result = await loginToToken({ email, password })
 
-    if (result instanceof AxiosError) {
-      alert('Tem algo errado com as informacoes de login, tente novamente!');
+    if (!result) {
+      return alert('Tem algo errado com as informacoes de login, tente novamente!');
     }
 
     saveTokenOnLocalStorage('token', result.token)
+    navigate('/home')
   }
 
   const handleFormInfo = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -38,6 +42,9 @@ export default function Login() {
 
   return (
     <LoginContainer>
+      <p className="alert">Para fazer um anuncio voce precisa se cadastrar e estar logado</p>
+      <p className="alert">Ao fazer o login voce sera direcionado para a pagina pricipal</p>
+
       <form action="#">
 
         <label htmlFor="email">Digite seu e-mail valido:
@@ -49,14 +56,22 @@ export default function Login() {
         </label>
 
         <button
-          type="button"
+          className="login"
+          type="submit"
           disabled={isDisable}
-          style={{border: `${isDisable && '1px solid red'}`}}
+          style={{border: `${isDisable ? '1px solid red' : ''}`}}
           onClick={handleLogin}
         > Entrar
         </button>
 
       </form>
+
+      <button
+        className="register"
+        type="button"
+        onClick={() => navigate('/register')}
+      > Cadastrar
+      </button>
     </LoginContainer>
   );
 }
