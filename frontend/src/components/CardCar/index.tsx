@@ -5,7 +5,7 @@ export default function CardCar(props: IListOfCars) {
   return (
     <CardCarContainer>
       <div className="thumb">
-        <img src={props.imgs[0]} alt={props.model} />
+        <img src={props.imgs ? props.imgs[0] : ''} alt={props.model} />
       </div>
       <p className="model">{props.model}</p>
       
