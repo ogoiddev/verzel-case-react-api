@@ -13,6 +13,11 @@
 * [Aplicacao - Clique aqui para conhecer o site](https://ogoiddev-verzel.vercel.app/)
 
 
+* Para login no site utilize:
+  email = admin@admin.com,
+  password: 123456,
+
+
 ![Tela de cadastro de venda](https://github.com/ogoiddev/verzel-case-react-api/blob/main/frontend/public/Screenshot%202022-11-04%20045348.jpg?raw=true)
 
 
@@ -292,4 +297,4 @@ Agora sim. Uma aplicacao completa para estudar. :)
 - const URL_LOCAL = "http://localhost:3001/"
 - const URL_WEB = "https://verzel-case-react-api-production-c540.up.railway.app/"
 
-* Ja temos bastante codigo aqui, mas ainda nao esta completa a aplicacao. Obrigado pela visita.
+* Ja temos bastante codigo aqui, feito com muito carinho, mas ainda nao esta completa a aplicacao. Obrigado pela visita.

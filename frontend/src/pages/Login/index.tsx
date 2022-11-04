@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { saveTokenOnLocalStorage } from "../../Context/LocalStorage";
 import { UserContext } from "../../Context/UserContext";
@@ -26,6 +26,12 @@ export default function Login() {
     navigate('/home')
   }
 
+  useEffect(() => {
+    if (email.match(/^\w+([-+.’]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/) && password.length > 5) {
+      setIsDisable(false)
+    }
+  }, [email, password])
+
   const handleFormInfo = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     if (e.target.name === 'email') {
       setEmail(e.target.value);
@@ -33,12 +39,6 @@ export default function Login() {
     if (e.target.name === 'password') {
       setPassword(e.target.value);
     }
-
-    if (email.match(/^\w+([-+.’]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/) && password.length > 5) {
-      setIsDisable(false)
-    }
-
-
   }
 
 
