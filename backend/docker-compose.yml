@@ -37,6 +37,11 @@ services:
       MONGO_URI: mongodb://mongodb:27017/CarShop
       JWT_SECRET: jwt_secret
       PORT: 3001
+      MONGOHOST: containers-us-west-99.railway.app
+      MONGOPASSWORD: ckfjGEiIyS4VbmQcyqW0
+      MONGOPORT: 7682
+      MONGOUSER: mongo
+      MONGO_URL: mongodb://${{ MONGOUSER }}:${{ MONGOPASSWORD }}@${{ MONGOHOST }}:${{ MONGOPORT }}
 
   # Serviço que irá rodar o mongodb
   mongodb:
