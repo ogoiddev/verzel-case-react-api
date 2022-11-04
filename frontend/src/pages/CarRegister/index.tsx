@@ -3,13 +3,14 @@ import { saveNewCar, sendImgOfNewCar } from '../../services/CarsDataApi';
 import { CarRegisterContainer } from "./styles";
 
 export default function CarRegister() {
-  const [infoSended, setInfoSended] = useState<boolean>(false)
-  const [idDataFormFilled, setIdDataFormFilled] = useState<string>('')
+  const [infoSended, setInfoSended] = useState<boolean>(false);
+  const [idDataFormFilled, setIdDataFormFilled] = useState<string>('');
+  const [file, setFile] = useState<any>();
 
   const handleInfoSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const dataForm = new FormData(e.currentTarget);
-    console.log(e.currentTarget);
+
     const DTO = dataForm.getAll('infoCar');
 
     const dataToSave = {
@@ -28,7 +29,6 @@ export default function CarRegister() {
       },
     }
 
-    console.log(dataToSave);
     const result = await saveNewCar(dataToSave)
     
     if (result) {
@@ -38,21 +38,11 @@ export default function CarRegister() {
     
   }
 
-  const handleImgSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const dataForm = new FormData(e.currentTarget);
+  const handleImgSubmit = async () => {
+    const data = new FormData()
+    data.append('file', file)
     
-    const DTO = dataForm.getAll('avatar');
-
-    for (var file in DTO){
-      dataForm.append('file', file);
-    }
-    
-    idDataFormFilled
-    
-    console.log(dataForm);
-    
-    const result = await sendImgOfNewCar(DTO)
+    const result = await sendImgOfNewCar(data)
     console.log(result);
     
   }
@@ -96,17 +86,17 @@ export default function CarRegister() {
         <button type="submit">Enviar</button>
       </form>
 
-      {infoSended && 
-      <form className='car-img-form' name="profile_form" onSubmit={handleImgSubmit}>
-          <input
-            id="avatar"
-            name="avatar"
-            accept="image/*"
-            type="file"
-            multiple
-            />
-        <button type="submit">Enviar Fotos</button>
-      </form>
+      {infoSended &&
+        <>
+          <form className='car-img-form' action="#">
+            <input type="file" id="file" accept='.*' onChange={e => {
+              const file = e.target.files && e.target.files[0] || '';
+              setFile(file)
+            }} />
+          </form>
+          <button type="button" onClick={handleImgSubmit}>Enviar Fotos</button>
+        </>
+      
       }
 
     </CarRegisterContainer>

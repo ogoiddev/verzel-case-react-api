@@ -236,6 +236,8 @@ docker compose up -d
 ```
 #### !:)! - Pronto! voce ja esta com o MongoDB rodando no Docker junto com sua Aplicacao API. Pode testar as rotas.
 
+
+
 Se voce tiver acesso ao terminal do container, voce recebe um log final assim:
 ```
 > verzel-case-react-api@1.0.0 dev
@@ -245,7 +247,19 @@ Running server on port: 3001
 ```
 Rota para ver o swagger doc API => **http://localhost:3001/api/doc**
 
+#### Se estiver usando o Thunder Cliente voce pode importar as queries prontas:
+
+* o arquivo esta salvo no diretorio base - **thunder-collection_verzel_car_shop**
+
 --------------------------------------------------------------------
+
+### Para rodar o frontend tambem e bem facil:
+* acesse a pasta frontend do projeto e execute:
+```
+$ npm run dev
+```
+
+Agora sim. Uma aplicacao completa para estudar. :)
 
 ## Informacoes uteis
 
@@ -254,11 +268,11 @@ Rota para ver o swagger doc API => **http://localhost:3001/api/doc**
 
 * Para rodar localmente sem o docker voce vai precisar configurar a connection:
 
-- 
-
 * Se tiver problemas com Eslint nas importacoes, configure o seu diretorio em "project" no arquivo **.eslintrc.json**
 
 - "parserOptions": {
       "ecmaVersion": 2019,
       "sourceType": "module",
       "project": "./**/tsconfig.json"
+
+* Infelizmente ainda nao esta completa a aplicacao, mas jaja terminamos ela... Obrigado pela visita.

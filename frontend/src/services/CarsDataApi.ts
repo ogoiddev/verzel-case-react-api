@@ -31,11 +31,11 @@ export const saveNewCar = async (infoCarDTO: any) => {
 }
 
 export const sendImgOfNewCar = async (infoImgDTO: any) => {
-  try {
-    const { data } = await axios.post((SEND_IMG_CAR_URL), infoImgDTO,
+  try {    
+    const { data } = await axios.post(SEND_IMG_CAR_URL, infoImgDTO,
       {
       headers: {
-        Authorization: token,
+        Authorization: token
       },
     })
     return data
