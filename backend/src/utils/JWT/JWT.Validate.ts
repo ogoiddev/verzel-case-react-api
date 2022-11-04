@@ -1,10 +1,10 @@
-import { verify } from 'jsonwebtoken';
+import { JwtPayload, verify } from 'jsonwebtoken';
 
 class ValidateJWT {
   static validateToken(token: string) {
     const data = verify(token, process.env.JWT_SECRET 
-      || 'jwt_secret');
-
+      || 'jwt_secret') as JwtPayload;
+    
     return data;
   }
 }

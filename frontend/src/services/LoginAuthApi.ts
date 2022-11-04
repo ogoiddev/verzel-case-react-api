@@ -2,7 +2,7 @@ import axios from "axios"
 import { LOGIN_URL } from "./endpoints"
 
 
-interface IUserLogDTO {
+export interface IUserLogDTO {
   email: string,
   password: string,
 }

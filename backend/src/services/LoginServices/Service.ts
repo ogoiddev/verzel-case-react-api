@@ -22,6 +22,7 @@ export default class LoginAuthServices {
 
     const token = JWT.createToken(userData);
 
-    return token;
+    const userDataWithToken = { userData, token };
+    return userDataWithToken;
   }
 }

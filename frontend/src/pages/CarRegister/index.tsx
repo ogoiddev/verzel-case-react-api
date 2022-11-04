@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getTokenFromLocalStorage } from '../../Context/LocalStorage';
 import { saveNewCar, sendImgOfNewCar } from '../../services/CarsDataApi';
 import { CarRegisterContainer } from "./styles";
 
 export default function CarRegister() {
   const [infoSended, setInfoSended] = useState<boolean>(false);
   const [idDataFormFilled, setIdDataFormFilled] = useState<string>('');
-  const [file, setFile] = useState<any>();
+  const [file, setFile] = useState<any>(undefined);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!getTokenFromLocalStorage('token')) {
+      navigate('/login');
+    }
+  }, [])
 
   const handleInfoSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,20 +39,40 @@ export default function CarRegister() {
     }
 
     const result = await saveNewCar(dataToSave)
-    
-    if (result) {
-      setIdDataFormFilled(result._id)
-      setInfoSended(!infoSended)
+
+    if (!result) {
+      return alert('Tem algo errado com as informacoes, tente novamente!');
     }
+    
+    setInfoSended(true);
+    setIdDataFormFilled(result._id);
+
+    alert('Cadastro realizado com sucesso, agora envie uma foto para o anuncio')
     
   }
 
   const handleImgSubmit = async () => {
+    if (!file) {
+      return alert('Arquivo nao carregado');
+    }
+
     const data = new FormData()
     data.append('file', file)
     
     const result = await sendImgOfNewCar(data)
-    console.log(result);
+
+    if (!result) {
+      return alert('Tem algo errado com o arquivo, tente novamente!');
+    }
+
+    alert('Fotos enviadas com sucesso')
+
+    setInfoSended(false);
+    console.log(idDataFormFilled)
+
+
+
+    
     
   }
 
@@ -51,41 +80,42 @@ export default function CarRegister() {
     <CarRegisterContainer>
       <h2>Cadastre seu veiculo</h2>
       
-      <form className='car-info-form' name="car_info_form" onSubmit={handleInfoSubmit}>
-        <label>Modelo/Marca
-          <input name="infoCar" type="text" placeholder='Ex: Astra Sedam GM'/>
-        </label>
-        <label>Ano de Fabricacao
-          <input name="infoCar" type="number" placeholder='Ex: 2000'/>
-        </label>
-        <label>Cor do Veiculo
-          <input name="infoCar" type="text" placeholder='Ex: Prata'/>
-        </label>
-        <label>Valor/Preco
-          <input name="infoCar" type="number" placeholder='Ex: 35000'/>
-        </label>
-        <label>Quantas portas
-          <input name="infoCar" type="number" min={2} max={9} placeholder='Ex: 4'/>
-        </label>
-        <label>Quantos assentos
-          <input name="infoCar" type="number" min={2} max={9} placeholder='Ex: 5'/>
-        </label>
-        <label>Cidade
-          <input name="infoCar" type="text" placeholder='Ex: Ubirata'/>
-        </label>
-        <label>Estado 
-          <input name="infoCar" type="text" placeholder='Ex: Parana'/>
-        </label>
-        <label>Cambio
-          <input name="infoCar" type="text" placeholder='Ex: Automatico'/>
-        </label>
-        <label>KMs rodados
-          <input name="infoCar" type="number" placeholder='Ex: 1500'/>
-        </label>
+      {!infoSended &&
+        <form className='car-info-form' name="car_info_form" onSubmit={handleInfoSubmit}>
+          <label>Modelo/Marca
+            <input name="infoCar" type="text" placeholder='Ex: Astra Sedam GM'/>
+          </label>
+          <label>Ano de Fabricacao
+            <input name="infoCar" type="number" placeholder='Ex: 2000'/>
+          </label>
+          <label>Cor do Veiculo
+            <input name="infoCar" type="text" placeholder='Ex: Prata'/>
+          </label>
+          <label>Valor/Preco
+            <input name="infoCar" type="number" placeholder='Ex: 35000'/>
+          </label>
+          <label>Quantas portas
+            <input name="infoCar" type="number" min={2} max={9} placeholder='Ex: 4'/>
+          </label>
+          <label>Quantos assentos
+            <input name="infoCar" type="number" min={2} max={9} placeholder='Ex: 5'/>
+          </label>
+          <label>Cidade
+            <input name="infoCar" type="text" placeholder='Ex: Ubirata'/>
+          </label>
+          <label>Estado 
+            <input name="infoCar" type="text" placeholder='Ex: Parana'/>
+          </label>
+          <label>Cambio
+            <input name="infoCar" type="text" placeholder='Ex: Automatico'/>
+          </label>
+          <label>KMs rodados
+            <input name="infoCar" type="number" placeholder='Ex: 1500'/>
+          </label>
 
-        <button type="submit">Enviar</button>
-      </form>
-
+          <button type="submit">Enviar</button>
+        </form>
+      }
       {infoSended &&
         <>
           <form className='car-img-form' action="#">
@@ -93,8 +123,8 @@ export default function CarRegister() {
               const file = e.target.files && e.target.files[0] || '';
               setFile(file)
             }} />
-          </form>
           <button type="button" onClick={handleImgSubmit}>Enviar Fotos</button>
+          </form>
         </>
       
       }

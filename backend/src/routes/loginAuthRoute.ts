@@ -1,6 +1,6 @@
-import { Request, Response, Router } from 'express';
-import AuthMiddleware from '../middleware/authMiddleware';
+import { Router } from 'express';
 import factory from '../factories';
+import AuthMiddleware from '../middleware/authMiddleware';
 
 const loginAuthRoute = Router();
 
@@ -8,9 +8,7 @@ loginAuthRoute.post('/', factory.loginAuthHandler.checkToTokenUser);
 loginAuthRoute.get(
   '/validate', 
   AuthMiddleware.checkAuth,
-  (req: Request, res: Response) => {
-    res.json({ token: 'checked' });
-  },
+  factory.loginAuthHandler.getUserValid,
 );
 
 export default loginAuthRoute;

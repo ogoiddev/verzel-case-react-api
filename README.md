@@ -292,4 +292,4 @@ Agora sim. Uma aplicacao completa para estudar. :)
 - const URL_LOCAL = "http://localhost:3001/"
 - const URL_WEB = "https://verzel-case-react-api-production-c540.up.railway.app/"
 
-* Infelizmente ainda nao esta completa a aplicacao, mas jaja terminamos ela... Obrigado pela visita.
+* Ja temos bastante codigo aqui, mas ainda nao esta completa a aplicacao. Obrigado pela visita.
