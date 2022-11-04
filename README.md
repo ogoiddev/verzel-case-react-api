@@ -265,7 +265,11 @@ Rota para ver o swagger doc API => **http://localhost:3001/api/doc**
 ### Para rodar o frontend tambem e bem facil:
 * acesse a pasta frontend do projeto e execute:
 ```
-$ npm run dev
+npm install
+```
+... depois chama:
+```
+npm run dev
 ```
 
 Agora sim. Uma aplicacao completa para estudar. :)
