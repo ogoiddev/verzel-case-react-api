@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getTokenFromLocalStorage } from '../../context/localstorage';
+import { getTokenFromLocalStorage } from '../../Context/LocalStorage';
 import { saveNewCar, sendImgOfNewCar } from '../../services/CarsDataApi';
 import { CarRegisterContainer } from "./styles";
 
