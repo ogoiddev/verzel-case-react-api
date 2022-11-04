@@ -3,7 +3,7 @@
 
 ## Documentação da API
 
-* [Clique aqui]() para estudar o comportamento das requisições de cada endpoint
+* [Clique aqui](https://verzel-case-react-api-production-c540.up.railway.app/api/doc/) para estudar o comportamento das requisições de cada endpoint
 
 ![Screenshot](https://github.com/ogoiddev/verzel-case-react-api/blob/api-dev/backend/public/Screenshot%202022-11-02%20014634.jpg?raw=true)
 
