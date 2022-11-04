@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderContainer } from "./styles";
-import logo from '../../../public/Screenshot 2022-11-02 165849.jpg'
+import logo from '../../../public/Logo-car-shop.png'
 import {FaUserCircle} from 'react-icons/fa'
 import { Link } from "react-router-dom";
 

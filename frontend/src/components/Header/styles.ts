@@ -12,8 +12,8 @@ export const HeaderContainer = styled.div`
   top: 0;
 
   img {
-    width: 48px;
-    height: 48px;
+    width: 78px;
+    height: 70px;
     margin: auto 0;
     border-radius: 50%;
   }
