@@ -7,9 +7,9 @@ import helmet from 'helmet';
 
 import multer from 'multer';
 import path from 'path';
-import errorHandler from './middleware/errorMiddleware';
-import Routes from './routes/index';
-import swaggerFile from './swagger_output.json';
+import errorHandler from '../middleware/errorMiddleware';
+import Routes from '../routes/index';
+import swaggerFile from '../swagger_output.json';
 
 const app = express();
 
@@ -44,11 +44,11 @@ app.post(
 
 app.use(Routes);
 
-app.use(errorHandler);
-
-app.use(express.static(path.join(__dirname, 'uploads')));
-
 app.use('/api/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+app.use(express.static('public'));
+
+app.use(errorHandler);
 
 app.use('/', (_req: Request, res: Response) =>
   res.json('Visite a documentação da API no endpoint /api/doc e bons estudos'));
