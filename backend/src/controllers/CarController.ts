@@ -29,6 +29,16 @@ export default class CarController {
     res.status(200).json(result);
   };
 
+  public uploadImageMulterInfo = async (req: Request, res: Response) => {
+    const { file } = req;
+    const { id } = req.body;
+
+    const reqFileName = file?.originalname || '';
+
+    await this.service.uploadImageMulterInfo(id, reqFileName);
+    res.status(200).json({ upload: true, files: req.file }); 
+  };
+
   public deleteCar = async (req: Request, res: Response) => {
     const { id } = req.params;
 

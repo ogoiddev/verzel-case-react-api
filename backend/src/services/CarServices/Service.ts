@@ -43,6 +43,22 @@ export default class Service {
 
     return result;
   }
+  
+  public async uploadImageMulterInfo(
+    id: string,
+    fileName: string,
+  ) {
+    // const dataCar = this.getCarById(id);
+
+    const result = await this.carModel.update(
+      id,
+      { thumb: fileName } as ICarDTO,
+    );
+
+    if (!result) throw Error(ErrorTypes.EntityNotFound);
+
+    return result;
+  }
 
   public async deleteCar(id: string) {
     if (!isValidObjectId(id)) throw Error(ErrorTypes.InvalidMongoId);

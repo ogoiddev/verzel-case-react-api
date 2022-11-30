@@ -12,6 +12,6 @@ connectToDatabase()
   .catch((error) => {
     console.log('Connection with database generated an error://DataBase Erro:\r\n');
     console.error(error);
-    console.log('\r\nServer initialization cancelled//Servico cancelado');
+    console.log('\r\nServer initialization cancelled//Serviço cancelado');
     process.exit(0);
   });

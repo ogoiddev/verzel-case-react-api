@@ -8,9 +8,9 @@ export default class LoginController {
   public checkToTokenUser = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
-    const token = await this.service.getToken(email, password);
+    const userData = await this.service.getToken(email, password);
 
-    res.status(200).json({ token });
+    res.status(200).json(userData);
   };
   
   public getUserValid = async (req: Request, res: Response) => {

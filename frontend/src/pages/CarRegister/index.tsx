@@ -8,11 +8,14 @@ export default function CarRegister() {
   const [infoSended, setInfoSended] = useState<boolean>(false);
   const [idDataFormFilled, setIdDataFormFilled] = useState<string>('');
   const [file, setFile] = useState<any>(undefined);
+  const [userToken, setUserToken] = useState<string>("");
   const navigate = useNavigate()
 
   useEffect(() => {
     if (!getTokenFromLocalStorage('token')) {
       navigate('/login');
+    } else {
+      setUserToken(getTokenFromLocalStorage('token') || "")
     }
   }, [])
 
@@ -38,10 +41,10 @@ export default function CarRegister() {
       },
     }
 
-    const result = await saveNewCar(dataToSave)
+    const result = await saveNewCar(userToken, dataToSave)
 
     if (!result) {
-      return alert('Tem algo errado com as informacoes, tente novamente!');
+      return alert('Tem algo errado com as informações, tente novamente!');
     }
     
     setInfoSended(true);
@@ -59,7 +62,7 @@ export default function CarRegister() {
     const data = new FormData()
     data.append('file', file)
     
-    const result = await sendImgOfNewCar(data)
+    const result = await sendImgOfNewCar(userToken, idDataFormFilled, data)
 
     if (!result) {
       return alert('Tem algo errado com o arquivo, tente novamente!');
@@ -120,7 +123,7 @@ export default function CarRegister() {
         <>
           <form className='car-img-form' action="#">
             <input type="file" id="file" accept='.*' onChange={e => {
-              const file = e.target.files && e.target.files[0] || '';
+              const file = e.target.files ? e.target.files[0] : '';
               setFile(file)
             }} />
           <button type="button" onClick={handleImgSubmit}>Enviar Fotos</button>

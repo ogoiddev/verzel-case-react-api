@@ -12,9 +12,8 @@ export const getListOfCars = async () => {
 
 }
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjYzNjRjYzYyM2VlYzQ0MDYxMGUwNzBjNiIsIm5hbWUiOiJEaW9nbyIsImxhc3ROYW1lIjoiTWFydGluaSBQYW50YWxlYW8iLCJlbWFpbCI6Im9nb2lkbXBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkd2F1Uk1hWXdhSDAzbTZnblc3NEpLT0FxMzFqN0JjbXBaTXd6S011Qnd4bDV1LjVrblZ0TS4iLCJyb2xlIjoiYWRtaW4iLCJ0aHVtYiI6InN0cmluZyJ9LCJpYXQiOjE2Njc2MDQwNTksImV4cCI6MTY2ODgxMzY1OX0.P1lJh_zMxcFx7Mt34DDddaWoqYStX7P0ZevoJV-2DAs"
 
-export const saveNewCar = async (infoCarDTO: any) => {
+export const saveNewCar = async (token: string, infoCarDTO: any) => {
   try {
     const { data } = await axios.post((SAVE_NEW_CAR_URL), infoCarDTO,
       {
@@ -30,9 +29,9 @@ export const saveNewCar = async (infoCarDTO: any) => {
 
 }
 
-export const sendImgOfNewCar = async (infoImgDTO: any) => {
+export const sendImgOfNewCar = async (token: string, id: string, infoImgDTO: any) => {
   try {    
-    const { data } = await axios.post(SEND_IMG_CAR_URL, infoImgDTO,
+    const { data } = await axios.post(SEND_IMG_CAR_URL, { infoImgDTO, id },
       {
       headers: {
         Authorization: token

@@ -29,7 +29,7 @@ abstract class MModel<T> implements IModel<T> {
     return results;
   }
 
-  public async update(_id:string, obj:Partial<T>):Promise<T | null> {    
+  public async update(_id:string, obj:Partial<T>): Promise<T | null> {    
     return this.model.findByIdAndUpdate(
       { _id },
       { ...obj } as UpdateQuery<T>,
