@@ -6,6 +6,7 @@ export default class CarController {
 
   public saveNewCar = async (req: Request, res: Response) => {
     const { body } = req;
+    
     const results = await this.service.saveNewCar(body);
     res.status(201).json(results);
   };
@@ -30,12 +31,15 @@ export default class CarController {
   };
 
   public uploadImageMulterInfo = async (req: Request, res: Response) => {
+    console.log('controllerrrrr');
     const { file } = req;
-    const { id } = req.body;
+    const { id } = req.params;
+    const url = 'http://localhost:3001/images/';
 
-    const reqFileName = file?.originalname || '';
-
-    await this.service.uploadImageMulterInfo(id, reqFileName);
+    const reqFileName = file?.filename || '';
+    console.log(url + reqFileName);
+    
+    await this.service.uploadImageMulterInfo(id, url + reqFileName);
     res.status(200).json({ upload: true, files: req.file }); 
   };
 

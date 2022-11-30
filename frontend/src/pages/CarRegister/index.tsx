@@ -69,14 +69,9 @@ export default function CarRegister() {
     }
 
     alert('Fotos enviadas com sucesso')
+    console.log(result)
 
     setInfoSended(false);
-    console.log(idDataFormFilled)
-
-
-
-    
-    
   }
 
   return (

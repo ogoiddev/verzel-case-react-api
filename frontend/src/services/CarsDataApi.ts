@@ -30,8 +30,9 @@ export const saveNewCar = async (token: string, infoCarDTO: any) => {
 }
 
 export const sendImgOfNewCar = async (token: string, id: string, infoImgDTO: any) => {
+  console.log(token, id, infoImgDTO);
   try {    
-    const { data } = await axios.post(SEND_IMG_CAR_URL, { infoImgDTO, id },
+    const { data } = await axios.post(`${SEND_IMG_CAR_URL}/${id}` , infoImgDTO,
       {
       headers: {
         Authorization: token

@@ -11,6 +11,6 @@ export const getTokenFromLocalStorage = (key: string) => {
     return undefined;
   }
 
-  return data
+  return JSON.parse(data)
   
 }

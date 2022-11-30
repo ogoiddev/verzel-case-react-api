@@ -23,7 +23,7 @@ app.use(Routes);
 app.use('/api/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(express.static('public'));
-// app.use('/files', express.static(path.resolve(__dirname, 'public')));
+// app.use('/files', express.static(path.resolve(__dirname, 'public', 'images')));
 
 app.use(errorHandler);
 
