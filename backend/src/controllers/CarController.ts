@@ -33,7 +33,8 @@ export default class CarController {
   public uploadImageMulterInfo = async (req: Request, res: Response) => {
     const { file } = req;
     const { id } = req.params;
-    const url = 'http://localhost:3001/images/';
+    // const url = 'http://localhost:3001/images/';
+    const url = 'https://verzel-case-react-api-production-c540.up.railway.app/';
 
     const reqFileName = file?.filename || '';
     
