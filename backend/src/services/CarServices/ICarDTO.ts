@@ -4,7 +4,7 @@ export interface ICarDTO {
   color: string,
   status?: boolean,
   buyValue: number,
-  imgs: string[],
+  thumb: string,
   features: {
     state: string,
     city: string,

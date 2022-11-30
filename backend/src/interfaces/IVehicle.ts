@@ -6,7 +6,7 @@ export const VehicleZodSchema = z.object({
   color: z.string(),
   status: z.boolean().optional(), 
   buyValue: z.number().int(),
-  imgs: z.array(z.string()).optional(),
+  thumb: z.string().optional(),
   features: z.object({
     state: z.string().max(20),
     city: z.string().max(30).optional(),

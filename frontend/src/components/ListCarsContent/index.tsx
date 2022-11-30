@@ -11,7 +11,7 @@ export interface IListOfCars {
   color: string,
   status?: boolean,
   buyValue: number,
-  imgs?: string[],
+  thumb?: string,
   seatsQty: number,
   doorsQty: number
   features: {
@@ -41,7 +41,7 @@ export default function ListCarsContent() {
   return (
     <ListCarsContentContainer>
       <div className="content-list">
-        { listOfCars.sort((a, b) => b.buyValue - a.buyValue).map(each => <CardCar key={each._id} {...each}/>)}
+        { listOfCars.map(each => <CardCar key={each._id} {...each}/>)}
       </div>
     </ListCarsContentContainer>
   );

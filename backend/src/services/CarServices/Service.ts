@@ -17,7 +17,7 @@ export default class Service {
   }
 
   public async getCarsList() {
-    const results = await this.carModel.read();
+    const results = await this.carModel.carRead();
     return results;
   }
 
@@ -38,6 +38,22 @@ export default class Service {
     if (!parseSuccess.success) throw parseSuccess.error;
 
     const result = await this.carModel.update(id, objectCar);
+
+    if (!result) throw Error(ErrorTypes.EntityNotFound);
+
+    return result;
+  }
+  
+  public async uploadImageMulterInfo(
+    id: string,
+    fileName: string,
+  ) {
+    // const dataCar = this.getCarById(id);
+
+    const result = await this.carModel.update(
+      id,
+      { thumb: fileName } as ICarDTO,
+    );
 
     if (!result) throw Error(ErrorTypes.EntityNotFound);
 

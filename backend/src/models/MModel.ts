@@ -8,6 +8,11 @@ abstract class MModel<T> implements IModel<T> {
     const results = this.model.find();
     return results;
   }
+
+  async carRead(): Promise<T[]> {
+    const results = this.model.find().sort({ buyValue: -1 });
+    return results;
+  }
   
   async readOneById(_id: string): Promise<T | null> {
     const results = await this.model.findOne({ _id });
@@ -29,7 +34,7 @@ abstract class MModel<T> implements IModel<T> {
     return results;
   }
 
-  public async update(_id:string, obj:Partial<T>):Promise<T | null> {    
+  public async update(_id:string, obj:Partial<T>): Promise<T | null> {    
     return this.model.findByIdAndUpdate(
       { _id },
       { ...obj } as UpdateQuery<T>,

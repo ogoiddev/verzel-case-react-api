@@ -21,7 +21,6 @@ export default function Login() {
     }
 
     saveTokenOnLocalStorage('token', result.token)
-    saveTokenOnLocalStorage('user', result.userData)
     setUserData(result)
     navigate('/home')
   }

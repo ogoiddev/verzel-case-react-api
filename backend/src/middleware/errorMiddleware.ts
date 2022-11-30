@@ -18,8 +18,7 @@ const errorHandler: ErrorRequestHandler = (
   }
 
   const messageAsErrorType = err.message as keyof typeof ErrorTypes;
-  // vamos usar a mensagem para acessar um erro do nosso catálogo
-  // se a mensagem não for uma chave do nosso catálogo "mappedError" vai retornar undefined e não entrar no "if"
+
   const mappedError = errorCatalog[messageAsErrorType];
   if (mappedError) {
     const { httpStatus, error } = mappedError;

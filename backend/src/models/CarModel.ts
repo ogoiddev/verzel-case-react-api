@@ -9,7 +9,7 @@ const carMongooseSchema = new Schema<ICar>({
   color: String,
   status: String,
   buyValue: Number,
-  imgs: Array(String),
+  thumb: String,
   features: {
     state: String,
     city: String,
