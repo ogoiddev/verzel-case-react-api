@@ -34,7 +34,9 @@ export default class CarController {
     const { file } = req;
     const { id } = req.params;
     // const url = 'http://localhost:3001/images/';
-    const url = 'https://verzel-case-react-api-production-c540.up.railway.app/';
+    const url = `
+      https://verzel-case-react-api-production-c540.up.railway.app/images/
+    `;
 
     const reqFileName = file?.filename || '';
     
