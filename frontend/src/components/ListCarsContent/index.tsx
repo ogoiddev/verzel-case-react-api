@@ -24,7 +24,7 @@ export interface IListOfCars {
 
 
 export default function ListCarsContent() {
-  const [listOfCars, setListOfCars] = useState<IListOfCars[]>()
+  const [listOfCars, setListOfCars] = useState<IListOfCars[]>([])
 
   useEffect(() => {
     (async () => {
@@ -32,7 +32,7 @@ export default function ListCarsContent() {
 
       setListOfCars(data)
     })()
-  }, [])
+  }, [listOfCars])
 
   if (!listOfCars) {
     return <Loading color={"blue"} />

@@ -2,11 +2,11 @@ import { IListOfCars } from "../ListCarsContent";
 import { CardCarContainer } from "./styles";
 
 export default function CardCar(props: IListOfCars) {
-  // const img = `http://localhost:3001/images/${props.thumb}`
+  
   return (
     <CardCarContainer>
       <div className="thumb">
-        <img crossOrigin="anonymous" src={props.thumb ? props.thumb : './Logo-car-shop.png'} alt={props.model} />
+        <img crossOrigin="anonymous" src={props.thumb || './Logo-car-shop.png'} alt={props.model} />
       </div>
       <p className="model">{props.model}</p>
       
