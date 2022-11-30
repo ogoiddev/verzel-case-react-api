@@ -17,7 +17,7 @@ export default class Service {
   }
 
   public async getCarsList() {
-    const results = await this.carModel.read();
+    const results = await this.carModel.carRead();
     return results;
   }
 
