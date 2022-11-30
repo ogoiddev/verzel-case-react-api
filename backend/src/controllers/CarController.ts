@@ -31,13 +31,11 @@ export default class CarController {
   };
 
   public uploadImageMulterInfo = async (req: Request, res: Response) => {
-    console.log('controllerrrrr');
     const { file } = req;
     const { id } = req.params;
     const url = 'http://localhost:3001/images/';
 
     const reqFileName = file?.filename || '';
-    console.log(url + reqFileName);
     
     await this.service.uploadImageMulterInfo(id, url + reqFileName);
     res.status(200).json({ upload: true, files: req.file }); 
