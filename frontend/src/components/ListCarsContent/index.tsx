@@ -11,7 +11,7 @@ export interface IListOfCars {
   color: string,
   status?: boolean,
   buyValue: number,
-  imgs?: string[],
+  thumb?: string,
   seatsQty: number,
   doorsQty: number
   features: {

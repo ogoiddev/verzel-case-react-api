@@ -2,8 +2,8 @@ import cors from 'cors';
 import express, { Request, Response } from 'express';
 import 'express-async-errors';
 
-import swaggerUi from 'swagger-ui-express';
 import helmet from 'helmet';
+import swaggerUi from 'swagger-ui-express';
 
 import errorHandler from '../middleware/errorMiddleware';
 import Routes from '../routes/index';
@@ -12,7 +12,9 @@ import swaggerFile from '../swagger_output.json';
 const app = express();
 
 app.use(cors());
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+}));
 
 app.use(express.json());
 
@@ -21,6 +23,7 @@ app.use(Routes);
 app.use('/api/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(express.static('public'));
+// app.use('/files', express.static(path.resolve(__dirname, 'public')));
 
 app.use(errorHandler);
 
